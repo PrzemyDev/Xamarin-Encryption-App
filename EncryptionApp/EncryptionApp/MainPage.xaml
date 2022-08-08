@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EncryptionApp.MainPage">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#252525">
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                <Entry x:Name="entKey" HorizontalOptions="FillAndExpand" Placeholder="Klucz" PlaceholderColor="DarkGoldenrod"
+                       TextColor="Gold"/>
+                <Button x:Name="btnAcceptKey" Text="Zatwierdź" HorizontalOptions="End" Clicked="btnAcceptKey_Clicked"
+                        TextColor="Gold" Background="Transparent"/>
+                <ImageButton x:Name="btnClearKey" HorizontalOptions="End" Clicked="btnClearKey_Clicked"
+                        Source="icons8broomGold.png" WidthRequest="30"  HeightRequest="50" BackgroundColor="Transparent"
+                             Margin="0,0,5,0"/>
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="Gold" Offset="0.1"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
+                    <Label x:Name="lblKeyInfo" Text="EncryptionApp" TextColor="#232323" Margin="0,5,0,0"
+                           FontSize="Body"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center" Spacing="20">
+                    <ImageButton  Clicked="btnEncrypt_Clicked" Source="icons8pass.png"  WidthRequest="30" HeightRequest="50"
+                             BackgroundColor="Transparent"/>
+                    <ImageButton  Clicked="btnDecrypt_Clicked" Source="icons8show.png"  WidthRequest="40"  HeightRequest="50"
+                             BackgroundColor="Transparent"/>
+                    <ImageButton  Clicked="btnCopy_Clicked" Source="icons8copy.png"  WidthRequest="40"  HeightRequest="50"
+                             BackgroundColor="Transparent"/>
+                    <ImageButton  Clicked="btnPaste_Clicked" Source="icons8clipboard.png" WidthRequest="40"  HeightRequest="50"
+                             BackgroundColor="Transparent"/>
+                    <ImageButton Clicked="btnClear_Clicked" Source="icons8broom.png" WidthRequest="30"  HeightRequest="50"
+                                  BackgroundColor="Transparent"/>
+                    <ImageButton Clicked="btnHelp_Clicked" Source="icons8help.png" WidthRequest="30"  HeightRequest="50"
+                                  BackgroundColor="Transparent"/>
+                    <ImageButton Clicked="btnExit_Clicked" Source="icons8shutdown.png" WidthRequest="30"  HeightRequest="50"
+                                 BackgroundColor="Transparent"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <ScrollView VerticalOptions="FillAndExpand">
+                <Editor x:Name="edtUserInput" Placeholder="Wpisz treść wiadomości do szyfrowania / odszyfrowania"
+                        Background="#252525" PlaceholderColor="DarkGoldenrod" TextColor="Gold"/>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</ContentPage>
