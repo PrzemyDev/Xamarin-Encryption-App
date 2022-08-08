@@ -25,3 +25,6 @@ Application view is divided into 3 parts. The top of the application is responsi
 - Turn of the application
 
 Screenshots of the application can be found in the Screenshots folder.
+
+• Icons provided by Icons8  
+https://icons8.com/
