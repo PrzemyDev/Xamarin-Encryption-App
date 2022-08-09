@@ -13,7 +13,6 @@ namespace EncryptionApp
 
         }
 
-        //Encrypt string to bytes
         public byte[] Encryption(string plainText, byte[] Key, byte[] IV)
         {
             if (plainText == null || plainText.Length <= 0)
@@ -22,13 +21,13 @@ namespace EncryptionApp
                 throw new ArgumentNullException("Key");
             if (IV == null || IV.Length <= 0)
                 throw new ArgumentNullException("IV");
-
+            
             byte[] encryptedInside;
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
-
+                aesAlg.Padding = PaddingMode.Zeros;
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 using (MemoryStream msEncrypt = new MemoryStream())
@@ -46,7 +45,6 @@ namespace EncryptionApp
             return encryptedInside;
         }
 
-        //Decrypt string from bytes
         public string Decription(byte[] cipherText, byte[] Key, byte[] IV)
         {
             if (cipherText == null || cipherText.Length <= 0)
@@ -56,13 +54,14 @@ namespace EncryptionApp
             if (IV == null || IV.Length <= 0)
                 throw new ArgumentException("IV");
 
+            
             string plaintext = null;
 
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
-
+                aesAlg.Padding = PaddingMode.Zeros;
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
                 using (MemoryStream msDecryptor = new MemoryStream(cipherText))

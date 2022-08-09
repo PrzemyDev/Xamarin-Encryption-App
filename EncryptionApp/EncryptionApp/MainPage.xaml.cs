@@ -18,7 +18,7 @@ namespace EncryptionApp
         {
             InitializeComponent();
         }
-        //temp 1234567890123456
+
         private string KeyInput;
         private string IV = "żź05sy!y3Sa9HH*@";
         private bool IsKeyCorrect = false;
@@ -48,7 +48,8 @@ namespace EncryptionApp
 
         private void btnEncrypt_Clicked(object sender, EventArgs e)
         {
-            if (IsKeyCorrect && edtUserInput.Text != string.Empty)
+
+            if (IsKeyCorrect && !String.IsNullOrEmpty(edtUserInput.Text) )
             {
                 byte[] bKey = Encoding.ASCII.GetBytes(KeyInput);
                 byte[] bIV = Encoding.ASCII.GetBytes(IV);
@@ -59,11 +60,11 @@ namespace EncryptionApp
             {
                 DisplayAlert("Info", "Najpierw należy zatwierdzić klucz oraz podać tekst do zaszyfrowania.", "OK");
             }
-           
+
         }
         private void btnDecrypt_Clicked(object sender, EventArgs e)
         {
-            if (IsKeyCorrect && edtUserInput.Text != string.Empty)
+            if (IsKeyCorrect && !String.IsNullOrEmpty(edtUserInput.Text))
             {
                 byte[] bKey = Encoding.ASCII.GetBytes(KeyInput);
                 byte[] bIV = Encoding.ASCII.GetBytes(IV);
