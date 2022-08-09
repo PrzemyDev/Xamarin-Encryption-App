@@ -44,6 +44,7 @@ namespace EncryptionApp
         {
             entKey.Text = String.Empty;
             entKey.IsReadOnly = false;
+            IsKeyCorrect = false;
         }
 
         private void btnEncrypt_Clicked(object sender, EventArgs e)
@@ -63,14 +64,21 @@ namespace EncryptionApp
 
         }
         private void btnDecrypt_Clicked(object sender, EventArgs e)
-        {
+        { 
             if (IsKeyCorrect && !String.IsNullOrEmpty(edtUserInput.Text))
             {
-                byte[] bKey = Encoding.ASCII.GetBytes(KeyInput);
-                byte[] bIV = Encoding.ASCII.GetBytes(IV);
-                byte[] bInput = Convert.FromBase64String(edtUserInput.Text);
-                string sDecrypt = aes.Decription(bInput, bKey, bIV);
-                edtUserInput.Text = sDecrypt;
+                try
+                {
+                    byte[] bKey = Encoding.ASCII.GetBytes(KeyInput);
+                    byte[] bIV = Encoding.ASCII.GetBytes(IV);
+                    byte[] bInput = Convert.FromBase64String(edtUserInput.Text);
+                    string sDecrypt = aes.Decription(bInput, bKey, bIV);
+                    edtUserInput.Text = sDecrypt;
+                }
+                catch (Exception)
+                {
+                    DisplayAlert("Info", "Niepoprawna treść wiadomości", "OK");
+                }
             }
             else
             {
