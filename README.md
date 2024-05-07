@@ -12,7 +12,8 @@ Widok aplikacji podzielony jest na 3 części. Górna część aplikacji odpowia
 - Wyświetl pomoc  
 - Wyłącz aplikację
 
-Zrzuty ekranu aplikacji znajdują się w folderze Screenshots.
+<p>Zrzuty ekranu aplikacji znajdują się w folderze Screenshots.</p>
+<img src="https://github.com/PrzemyDev/Xamarin-Encryption-App/blob/main/Screenshots/Screenshot%20(3).png?raw=true" alt="application preview image" Width=250 />
   
 # This application is used to encrypt and decrypt messages.  
 Application view is divided into 3 parts. The top of the application is responsible for input and actions related to setting the encryption code. The confirm button "ZATWIERDŹ" is responsible for setting the encryption key, but also verifies if it is correct. The broom-like button clears the input key. The bottom part is for entering the message for encryption or decryption. The middle part (golden bar) contains all the operations you can perform. There are icons representing following buttons:  
