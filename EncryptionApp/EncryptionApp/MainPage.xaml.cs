@@ -20,7 +20,8 @@ namespace EncryptionApp
         }
 
         private string KeyInput;
-        private string IV = "żź05sy!y3Sa9HH*@";
+        private string IV = "enter (16 characters with either ASCII or UTF-32)"; //for example: żx13zq!y4Sa9oO*& 
+        //The iv must be exactly 128-bits (16 bytes) long
         private bool IsKeyCorrect = false;
 
         private async void btnAcceptKey_Clicked(object sender, EventArgs e)
